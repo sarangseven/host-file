@@ -1,5 +1,5 @@
 /* ===== Edit these links ===== */
-const LINKS={email:'mailto:atmesarang7@gmail.com',linkedin:'https://www.linkedin.com/in/sarang-s-7b0133233',github:'https://github.com/sarangseven',instagram:'https://www.instagram.com/sarangseven',booking:'https://calendar.app.google/ifVVRtHYBuwsCH1r5',resume:'https://drive.google.com/file/d/1hM82YRi1-Hd5PvKQ7TkIlb2jrS8B4zyW/view?usp=sharing'};
+const LINKS={email:'mailto:atmesarang7@gmail.com',linkedin:'https://www.linkedin.com/in/sarang-s-7b0133233',github:'https://github.com/sarangseven',instagram:'https://www.instagram.com/sarangseven',booking:'https://calendar.app.google/ifVVRtHYBuwsCH1r5',resume:'https://drive.google.com/file/d/1SRKbRa9WkxLJYChYpenINQ_uPfukZncP/view?usp=sharing'};
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 $$('[data-link]').forEach(a=>a.href=LINKS[a.dataset.link]||'#');
 // Theme: light by default, remembered after first toggle
