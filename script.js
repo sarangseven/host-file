@@ -18,11 +18,6 @@ const skills=['Consultative Selling','Customer Experience','Pipeline Management'
 const row=skills.map(s=>`<span>${s}</span>`).join('');$('#track').innerHTML=row+row+row+row;
 // Playground accordions
 $$('.more').forEach(b=>b.onclick=()=>{const o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',o);b.nextElementSibling.hidden=!o});
-// Ribbon artwork
-const bz=(p,t)=>{const u=1-t;return[0,1].map(k=>u**3*p[0][k]+3*u*u*t*p[1][k]+3*u*t*t*p[2][k]+t**3*p[3][k])};
-const A=[[400,60],[120,180],[130,380],[420,580]],B=[[470,80],[200,150],[250,420],[380,610]];
-let d='';for(let i=0;i<=110;i++){const t=i/110,a=bz(A,t),b=bz(B,Math.min(1,t*1.02)),o=(.15+.85*Math.sin(Math.PI*t)).toFixed(2);d+=`<line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" opacity="${o}"/>`}
-$('#art').innerHTML=d;
 $('#top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
 
 // ===== v2 polish: theme-color, nav state, scroll reveal, section spy =====
