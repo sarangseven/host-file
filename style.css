@@ -75,13 +75,19 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 900px}
 @media(max-width:600px){.circ.top{right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:44px;height:44px}}
 @media(prefers-reduced-motion:reduce){.circ.top,.circ.top.show:hover{transition:none;transform:none}}
 /* ===== crowd footer ===== */
-.crowd{position:relative;overflow:hidden;background:#fff;color:#000;border-top:1px solid var(--bd);padding:56px 0 0;content-visibility:visible}
-.crowd .seeyou{position:relative;z-index:2;margin:0 0 0 max(24px,4vw);font:500 15px var(--sans);color:#000}
-.crowd .wm{position:absolute;left:0;right:0;top:34px;text-align:center;font:800 clamp(88px,22vw,340px)/1 var(--sans);letter-spacing:-.04em;color:#efefef;user-select:none;pointer-events:none;white-space:nowrap}
-.crowd svg{position:relative;z-index:1;display:block;width:100%;max-width:1400px;height:auto;margin:0 auto}
-.crowd .f{animation:idle 3.8s var(--e) infinite alternate;animation-delay:var(--d,0s)}
-.crowd .f.me{animation:none}
-@keyframes idle{from{transform:translateY(0)}to{transform:translateY(-5px)}}
-@media(prefers-reduced-motion:reduce){.crowd .f{animation:none}}
-
-@media(max-width:600px){.crowd{padding-top:40px}.crowd svg{width:190%;max-width:none;margin-left:-45%}}
+.crowd{position:relative;overflow:hidden;background:#fff;border-top:1px solid var(--bd);padding:40px 0 0;content-visibility:visible}
+.crowd .wm{position:absolute;left:0;right:0;top:12px;text-align:center;font:800 max(88px,22vw)/1 var(--sans);letter-spacing:-.04em;color:#ececec;user-select:none;pointer-events:none;white-space:nowrap}
+.crowd svg{position:relative;z-index:1;display:block;width:100%;height:clamp(280px,28vw,470px)}
+.crowd .seeyou{position:absolute;z-index:2;right:96px;bottom:clamp(14px,2.2vw,28px);margin:0;font:600 clamp(14px,1.7vw,21px) var(--sans);letter-spacing:-.01em;color:#6b1b34;text-shadow:0 0 8px #fff,0 0 3px #fff}
+.crowd .pass{animation-duration:var(--dur);animation-delay:var(--dl);animation-timing-function:linear;animation-iteration-count:infinite}
+.crowd .pass.r{animation-name:passR}.crowd .pass.l{animation-name:passL}
+@keyframes passR{from{transform:translateX(var(--x0))}to{transform:translateX(var(--x1))}}
+@keyframes passL{from{transform:translateX(var(--x1))}to{transform:translateX(var(--x0))}}
+.crowd .la,.crowd .ab{animation:swingLeg var(--st,.55s) ease-in-out infinite alternate}
+.crowd .lb,.crowd .aa{animation:swingLeg var(--st,.55s) ease-in-out infinite alternate-reverse}
+.crowd .ab,.crowd .aa{animation-name:swingArm}
+@keyframes swingLeg{from{transform:rotate(-27deg)}to{transform:rotate(27deg)}}
+@keyframes swingArm{from{transform:rotate(-20deg)}to{transform:rotate(20deg)}}
+.crowd.off *{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.crowd *{animation:none!important}}
+@media(max-width:600px){.crowd .seeyou{right:76px}.crowd{padding-top:28px}}
