@@ -18,7 +18,8 @@ const skills=['Consultative Selling','Customer Experience','Pipeline Management'
 const row=skills.map(s=>`<span>${s}</span>`).join('');$('#track').innerHTML=row+row+row+row;
 // Playground accordions
 $$('.more').forEach(b=>b.onclick=()=>{const o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',o);b.nextElementSibling.hidden=!o});
-$('#top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+const topBtn=$('#top'),toggleTop=()=>topBtn.classList.toggle('show',scrollY>400);addEventListener('scroll',toggleTop,{passive:true});toggleTop();
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
 
 // ===== v2 polish: theme-color, nav state, scroll reveal, section spy =====
 const root=document.documentElement,meta=$('meta[name=theme-color]');
