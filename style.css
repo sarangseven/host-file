@@ -84,12 +84,12 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 900px}
 @keyframes passR{from{transform:translateX(var(--x0))}to{transform:translateX(var(--x1))}}
 @keyframes passL{from{transform:translateX(var(--x1))}to{transform:translateX(var(--x0))}}
 .crowd .bob{animation:bob calc(var(--st)/2) ease-in-out infinite alternate;animation-delay:calc(var(--po)*-1)}
-.crowd .up{transform-origin:0 -88px;animation:sway calc(var(--st)*2) ease-in-out infinite;animation-delay:calc(var(--po)*-1)}
-.crowd .hd{transform-origin:0 -158px;animation:nod var(--st) ease-in-out infinite alternate;animation-delay:calc(var(--po)*-1)}
+.crowd .up{transform-origin:0 -34px;animation:sway calc(var(--st)*2) ease-in-out infinite;animation-delay:calc(var(--po)*-1)}
+.crowd .hd{transform-origin:0 -70px;animation:nod var(--st) ease-in-out infinite alternate;animation-delay:calc(var(--po)*-1)}
 .crowd .th,.crowd .kn,.crowd .arm,.crowd .fore{animation-duration:calc(var(--st)*2);animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-delay:calc(var(--po)*-1)}
 .crowd .th{animation-name:thigh}.crowd .kn{animation-name:knee}.crowd .arm{animation-name:armsw}.crowd .fore{animation-name:fore}
 .crowd .b{animation-delay:calc(var(--po)*-1 - var(--st))}
-@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-5px)}}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-3px)}}
 @keyframes sway{0%,100%{transform:rotate(1deg)}50%{transform:rotate(5deg)}}
 @keyframes nod{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
 @keyframes thigh{0%,100%{transform:rotate(24deg)}50%{transform:rotate(-26deg)}}
