@@ -32,3 +32,34 @@ $$('.rv').forEach(el=>io.observe(el));
 const links=$$('.links a'),spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
 ['experience','playground','about'].forEach(id=>spy.observe($('#'+id)));
 addEventListener('keydown',e=>{if(e.key==='Escape'){menu.hidden=true;plus.setAttribute('aria-expanded',false)}});
+
+// ===== crowd footer: original line-art figures; the centre one is solid black and never moves =====
+(()=>{const svg=$('#crowd');if(!svg)return;const N='http://www.w3.org/2000/svg';
+const hair={short:'M-27-112C-27-140 27-140 27-112C14-122-14-122-27-112Z',side:'M-28-110C-30-142 30-142 28-110L28-84C22-98 22-116 0-120C-22-116-22-98-28-84Z',long:'M-29-108C-32-146 32-146 29-108L33-62C22-70 24-112 0-118C-24-112-22-70-33-62Z',curly:'M-30-112C-36-132-14-146 0-138C14-146 36-132 30-112C20-122-20-122-30-112Z',cap:'M-29-114C-29-142 29-142 29-114Z M-29-114H34'};
+const people=[ // x, row(0 back/1 front), scale, hair, glasses, smile, shirt
+[60,0,1,'long',0,1,'plain'],[150,0,1.05,'curly',1,1,'stripe'],[235,0,.95,'short',0,1,'plain'],[318,0,1.1,'side',0,1,'collar'],[410,0,1,'cap',1,1,'hood'],
+[790,0,1,'long',0,1,'collar'],[880,0,1.05,'short',1,1,'stripe'],[965,0,.95,'curly',0,1,'plain'],[1050,0,1.1,'side',1,1,'hood'],[1140,0,1,'cap',0,1,'plain'],
+[20,1,1.2,'short',1,1,'hood'],[130,1,1.15,'long',0,1,'plain'],[250,1,1.2,'curly',0,1,'collar'],[365,1,1.15,'side',1,1,'stripe'],[475,1,1.2,'cap',0,1,'hood'],
+[725,1,1.2,'side',0,1,'plain'],[835,1,1.15,'short',1,1,'collar'],[945,1,1.2,'long',0,1,'hood'],[1060,1,1.15,'curly',1,1,'plain'],[1170,1,1.2,'cap',0,1,'stripe']];
+const el=(n,a,p)=>{const e=document.createElementNS(N,n);for(const k in a)e.setAttribute(k,a[k]);p&&p.appendChild(e);return e};
+const ink={fill:'#fff',stroke:'#000','stroke-width':3,'stroke-linejoin':'round','stroke-linecap':'round'};
+function person(g,[x,row,sc,hr,gl,sm,sh],i){const base=row?352:318;const f=el('g',{class:'f',style:'--d:-'+((i*.37)%3.8).toFixed(2)+'s'},svg);
+const b=el('g',{transform:`translate(${x} ${base}) scale(${sc})`},f);
+el('path',{...ink,d:'M-52 0C-52-62-32-80 0-80C32-80 52-62 52 0Z'},b);el('path',{...ink,d:'M-10-80V-92H10V-80'},b);
+if(sh==='stripe'){el('path',{...ink,fill:'none',d:'M-50-30H50M-51-14H51'},b)}
+if(sh==='collar'){el('path',{...ink,fill:'none',d:'M-14-80L0-60L14-80'},b)}
+if(sh==='hood'){el('path',{...ink,fill:'none',d:'M-14-78C-14-60-12-40-12-30M14-78C14-60 12-40 12-30'},b)}
+el('circle',{...ink,cx:0,cy:-112,r:27},b);
+el('path',{...ink,fill:hr==='cap'?'#fff':'#000',d:hair[hr]},b);
+el('circle',{cx:-9,cy:-110,r:2.6,fill:'#000'},b);el('circle',{cx:9,cy:-110,r:2.6,fill:'#000'},b);
+if(gl){el('circle',{...ink,fill:'none','stroke-width':2.2,cx:-9,cy:-110,r:7.5},b);el('circle',{...ink,fill:'none','stroke-width':2.2,cx:9,cy:-110,r:7.5},b);el('path',{...ink,fill:'none','stroke-width':2.2,d:'M-1.5-110H1.5'},b)}
+el('path',{...ink,fill:'none','stroke-width':2.4,d:sm?'M-7-98Q0-92 7-98':'M-6-97H6'},b)}
+people.filter(p=>!p[1]).slice(0,5).forEach((p,i)=>person(0,p,i));
+people.filter(p=>!p[1]).slice(5).forEach((p,i)=>person(0,p,i+5));
+// the centre character: solid black, tall, completely still
+const me=el('g',{class:'f me',transform:'translate(600 330) scale(1.3)',fill:'#000',stroke:'#000'},svg);
+el('path',{d:'M-54 0C-54-64-34-84 0-84C34-84 54-64 54 0Z'},me);el('rect',{x:-11,y:-98,width:22,height:18},me);el('circle',{cx:0,cy:-116,r:29},me);
+el('path',{d:'M-30-120C-34-152 34-152 30-120C18-132-18-132-30-120Z'},me);
+people.filter(p=>p[1]).forEach((p,i)=>person(0,p,i+10));
+})();
+

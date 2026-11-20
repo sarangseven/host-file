@@ -74,3 +74,14 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 900px}
 .photo img{height:auto}
 @media(max-width:600px){.circ.top{right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:44px;height:44px}}
 @media(prefers-reduced-motion:reduce){.circ.top,.circ.top.show:hover{transition:none;transform:none}}
+/* ===== crowd footer ===== */
+.crowd{position:relative;overflow:hidden;background:#fff;color:#000;border-top:1px solid var(--bd);padding:56px 0 0;content-visibility:visible}
+.crowd .seeyou{position:relative;z-index:2;margin:0 0 0 max(24px,4vw);font:500 15px var(--sans);color:#000}
+.crowd .wm{position:absolute;left:0;right:0;top:34px;text-align:center;font:800 clamp(88px,22vw,340px)/1 var(--sans);letter-spacing:-.04em;color:#efefef;user-select:none;pointer-events:none;white-space:nowrap}
+.crowd svg{position:relative;z-index:1;display:block;width:100%;max-width:1400px;height:auto;margin:0 auto}
+.crowd .f{animation:idle 3.8s var(--e) infinite alternate;animation-delay:var(--d,0s)}
+.crowd .f.me{animation:none}
+@keyframes idle{from{transform:translateY(0)}to{transform:translateY(-5px)}}
+@media(prefers-reduced-motion:reduce){.crowd .f{animation:none}}
+
+@media(max-width:600px){.crowd{padding-top:40px}.crowd svg{width:190%;max-width:none;margin-left:-45%}}
