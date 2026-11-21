@@ -76,27 +76,38 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 900px}
 @media(prefers-reduced-motion:reduce){.circ.top,.circ.top.show:hover{transition:none;transform:none}}
 /* ===== crowd footer ===== */
 .crowd{--ink:var(--tx);--f0:var(--bg);--f1:color-mix(in srgb,var(--bg) 88%,var(--tx));--f2:color-mix(in srgb,var(--bg) 72%,var(--tx));position:relative;overflow:hidden;background:var(--bg);color:var(--tx);border-top:1px solid var(--bd);padding:40px 0 0;content-visibility:visible;transition:background-color .5s var(--e),color .5s var(--e)}
-.crowd .wm{position:absolute;left:0;right:0;top:12px;text-align:center;font:800 max(88px,22vw)/1 var(--sans);letter-spacing:-.04em;color:rgba(122,30,60,.11);transition:color .5s var(--e);user-select:none;pointer-events:none;white-space:nowrap}
+.crowd .wm{position:absolute;left:0;right:0;top:12px;text-align:center;font:800 max(88px,22vw)/1 var(--sans);letter-spacing:-.04em;color:color-mix(in srgb,var(--tx) 7%,transparent);transition:color .5s var(--e);user-select:none;pointer-events:none;white-space:nowrap}
 .crowd svg{position:relative;z-index:1;display:block;width:100%;height:clamp(280px,28vw,470px)}
-.crowd .seeyou{position:absolute;z-index:2;right:96px;bottom:clamp(14px,2.2vw,28px);margin:0;font:600 clamp(14px,1.7vw,21px) var(--sans);letter-spacing:-.01em;color:#000;text-shadow:0 0 10px var(--bg),0 0 3px var(--bg);transition:text-shadow .5s var(--e)}
+.crowd .seeyou{position:absolute;z-index:2;right:96px;bottom:clamp(14px,2.2vw,28px);margin:0;font:600 clamp(14px,1.7vw,21px) var(--sans);letter-spacing:-.01em;color:#a3234d;text-shadow:0 0 10px var(--bg),0 0 3px var(--bg);transition:text-shadow .5s var(--e)}
 .crowd .pass{animation-duration:var(--dur);animation-delay:var(--dl);animation-timing-function:linear;animation-iteration-count:infinite}
 .crowd .pass.r{animation-name:passR}.crowd .pass.l{animation-name:passL}
 @keyframes passR{from{transform:translateX(var(--x0))}to{transform:translateX(var(--x1))}}
 @keyframes passL{from{transform:translateX(var(--x1))}to{transform:translateX(var(--x0))}}
 .crowd .bob{animation:bob calc(var(--st)/2) ease-in-out infinite alternate;animation-delay:calc(var(--po)*-1)}
-.crowd .fig{transform-origin:0 0;animation:lean calc(var(--st)*2) ease-in-out infinite;animation-delay:calc(var(--po)*-1)}
-@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-5px)}}
-@keyframes lean{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(2.2deg)}}
+.crowd .up{transform-origin:0 -88px;animation:sway calc(var(--st)*2) ease-in-out infinite;animation-delay:calc(var(--po)*-1)}
+.crowd .hd{transform-origin:0 -160px;animation:nod var(--st) ease-in-out infinite alternate;animation-delay:calc(var(--po)*-1)}
+.crowd .th,.crowd .kn,.crowd .arm,.crowd .fore{animation-duration:calc(var(--st)*2);animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-delay:calc(var(--po)*-1)}
+.crowd .th{animation-name:thigh}.crowd .kn{animation-name:knee}.crowd .arm{animation-name:armsw}.crowd .fore{animation-name:fore}
+.crowd .b{animation-delay:calc(var(--po)*-1 - var(--st))}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-4px)}}
+@keyframes sway{0%,100%{transform:rotate(1deg)}50%{transform:rotate(5deg)}}
+@keyframes nod{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+@keyframes thigh{0%,100%{transform:rotate(24deg)}50%{transform:rotate(-26deg)}}
+@keyframes knee{0%,100%{transform:rotate(22deg)}25%{transform:rotate(58deg)}50%{transform:rotate(4deg)}75%{transform:rotate(10deg)}}
+@keyframes armsw{0%,100%{transform:rotate(-24deg)}50%{transform:rotate(24deg)}}
+@keyframes fore{0%,100%{transform:rotate(-38deg)}50%{transform:rotate(-8deg)}}
+.crowd .k{stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.crowd .f0{fill:var(--f0)}.crowd .f1{fill:var(--f1)}.crowd .f2{fill:var(--f2)}.crowd .fi{fill:var(--ink)}
+.crowd .k,.crowd .f0,.crowd .f1,.crowd .f2,.crowd .fi{transition:fill .5s var(--e),stroke .5s var(--e)}
 .crowd .bs{stop-color:var(--tx)}
 .crowd .beam,.crowd .floor{opacity:0;transition:opacity .6s var(--e)}
 .crowd .floor{opacity:.22}
 [data-theme=dark] .crowd .beam{opacity:1}[data-theme=dark] .crowd .floor{opacity:1}
-.crowd .row{filter:saturate(.3) contrast(1.03);transition:filter .6s var(--e)}
-[data-theme=dark] .crowd .row{filter:saturate(.3) brightness(.85) contrast(1.03)}
+.crowd .row{transition:opacity .5s var(--e)}
 .crowd .me{transition:filter .6s var(--e)}
 [data-theme=dark] .crowd .me{filter:drop-shadow(0 0 18px rgba(255,255,255,.22)) brightness(1.07)}
 .crowd.off *{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){.crowd *{animation:none!important}}
 @media(max-width:600px){.crowd .seeyou{right:76px}.crowd{padding-top:28px}}
 .crowd .seeyou{transition:color .5s var(--e),text-shadow .5s var(--e)}
-[data-theme=dark] .crowd .seeyou{color:#fff}[data-theme=dark] .crowd .wm{color:rgba(205,70,115,.17)}
+[data-theme=dark] .crowd .seeyou{color:#ee7aa0}
