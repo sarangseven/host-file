@@ -91,8 +91,8 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 900px}
 .crowd .beam,.crowd .floor{opacity:0;transition:opacity .6s var(--e)}
 .crowd .floor{opacity:.22}
 [data-theme=dark] .crowd .beam{opacity:1}[data-theme=dark] .crowd .floor{opacity:1}
-.crowd .row{transition:filter .6s var(--e)}
-[data-theme=dark] .crowd .row{filter:brightness(.8) saturate(.95)}
+.crowd .row{filter:saturate(.3) contrast(1.03);transition:filter .6s var(--e)}
+[data-theme=dark] .crowd .row{filter:saturate(.3) brightness(.85) contrast(1.03)}
 .crowd .me{transition:filter .6s var(--e)}
 [data-theme=dark] .crowd .me{filter:drop-shadow(0 0 18px rgba(255,255,255,.22)) brightness(1.07)}
 .crowd.off *{animation-play-state:paused!important}

@@ -38,7 +38,7 @@ addEventListener('keydown',e=>{if(e.key==='Escape'){menu.hidden=true;plus.setAtt
 const el=(n,a,p)=>{const e=document.createElementNS(N,n);for(const k in a)e.setAttribute(k,a[k]);p&&p.appendChild(e);return e};
 const ME={src:'assets/sarang.webp',ar:.6636,h:345};
 // [file number, width/height ratio, relative height] - 34 caricature cut-outs in assets/crowd/
-const CUTS=[[1,0.2607,1.06],[2,0.4643,1.02],[3,0.525,0.98],[4,0.5518,1.00],[5,0.6036,0.99],[6,0.4696,1.02],[7,0.4446,1.04],[8,0.3518,1.07],[9,0.3839,0.99],[10,0.4821,1.01],[11,0.4786,1.02],[12,0.4536,0.98],[13,0.4946,1.05],[14,0.4161,0.88],[15,0.3821,1.00],[16,0.4125,1.04],[17,0.4268,0.99],[18,0.4411,0.98],[19,0.4786,0.99],[20,0.4464,0.95],[21,0.5339,0.94],[22,0.6107,0.93],[23,0.5768,0.96],[24,0.4089,0.93],[25,0.4286,0.98],[26,0.6089,0.95],[27,0.5911,1.01],[28,0.4179,0.96],[29,0.4964,0.96],[30,0.4839,0.96],[31,0.4821,1.01],[32,0.6125,1.00],[33,0.5214,0.99],[34,0.4839,0.92]];
+const CUTS=[[1,0.2586,1.06],[2,0.4607,1.02],[3,0.5246,0.98],[4,0.5505,1.00],[5,0.6035,0.99],[6,0.4678,1.02],[7,0.4434,1.04],[8,0.3465,1.07],[9,0.378,0.99],[10,0.4811,1.01],[11,0.4756,1.02],[12,0.4434,0.98],[13,0.4937,1.05],[14,0.4177,0.88],[15,0.3742,1.00],[16,0.4054,1.04],[17,0.4234,0.99],[18,0.4425,0.98],[19,0.4763,0.99],[20,0.4409,0.95],[21,0.5283,0.94],[22,0.6098,0.93],[23,0.5759,0.96],[24,0.4051,0.93],[25,0.4259,0.98],[26,0.6127,0.95],[27,0.5924,1.01],[28,0.4152,0.96],[29,0.4953,0.96],[30,0.4842,0.96],[31,0.4779,1.01],[32,0.6069,1.00],[33,0.5221,0.99],[34,0.4796,0.92]];
 const rnd=(a,b)=>a+Math.random()*(b-a);
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 let lastW=0;
@@ -61,7 +61,7 @@ function walker(layer,parent){
  const st=rnd(.72,.92),speed=rnd(70,130)*(layer?1.15:.85),dur=(W+400)/speed;
  const o=el('g',{class:'pass '+(dir>0?'r':'l'),style:`--dur:${dur.toFixed(2)}s;--dl:-${(Math.random()*dur).toFixed(2)}s;--st:${st.toFixed(2)}s;--po:${rnd(0,2*st).toFixed(2)}s`},parent);
  const g=el('g',{transform:`translate(0 ${base}) scale(${dir} 1)`},o);const bob=el('g',{class:'bob'},g);const fig=el('g',{class:'fig'},bob);
- el('image',{href:`assets/crowd/c${String(n).padStart(2,'0')}.webp`,x:-w/2,y:-h,width:w,height:h,preserveAspectRatio:'xMidYMax meet',decoding:'async'},fig)}
+ el('image',{href:`assets/crowd/c${String(n).padStart(2,'0')}.webp?v=2`,x:-w/2,y:-h,width:w,height:h,preserveAspectRatio:'xMidYMax meet',decoding:'async'},fig)}
 // density: many people; random phases and speeds make it thicker in some places and thinner in others
 const total=Math.max(10,Math.round(W/50));
 for(let i=0;i<Math.ceil(total/2);i++)walker(0,back);
