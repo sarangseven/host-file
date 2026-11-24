@@ -51,7 +51,10 @@ el('stop',{offset:'0',class:'bs','stop-opacity':.30},lg);el('stop',{offset:'.7',
 const rg=el('radialGradient',{id:'glow'},defs);el('stop',{offset:'0',class:'bs','stop-opacity':.42},rg);el('stop',{offset:'1',class:'bs','stop-opacity':0},rg);
 // spotlight (dark mode) + floor glow/shadow under the main character
 const cx=W/2,by=352;
-el('polygon',{class:'beam',points:`${cx-40},-10 ${cx+40},-10 ${cx+240},${by} ${cx-240},${by}`,fill:'url(#beam)',stroke:'none',filter:'url(#soft)'},svg);
+const secEl=svg.closest('.crowd'),padU=parseFloat(getComputedStyle(secEl).paddingTop)*H/Math.max(svg.clientHeight,1),ty=-(padU+14);
+// spotlight starts at the very top edge of the footer (no gap): same slanted sides, extended upward
+const k=200/(by+10),tw=Math.max(10,40-k*(-10-ty));
+el('polygon',{class:'beam',points:`${cx-tw},${ty} ${cx+tw},${ty} ${cx+240},${by} ${cx-240},${by}`,fill:'url(#beam)',stroke:'none',filter:'url(#soft)'},svg);
 el('ellipse',{class:'floor',cx,cy:by-2,rx:190,ry:20,fill:'url(#glow)',stroke:'none'},svg);
 const back=el('g',{class:'row'},svg);
 // random cast: every character appears before any repeats, in a fresh random order

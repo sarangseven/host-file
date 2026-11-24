@@ -77,7 +77,7 @@ section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 900px}
 /* ===== crowd footer ===== */
 .crowd{--ink:var(--tx);--f0:var(--bg);--f1:color-mix(in srgb,var(--bg) 88%,var(--tx));--f2:color-mix(in srgb,var(--bg) 72%,var(--tx));position:relative;overflow:hidden;background:var(--bg);color:var(--tx);border-top:1px solid var(--bd);padding:40px 0 0;content-visibility:visible;transition:background-color .5s var(--e),color .5s var(--e)}
 .crowd .wm{position:absolute;left:0;right:0;top:12px;text-align:center;font:800 max(88px,22vw)/1 var(--sans);letter-spacing:-.04em;color:rgba(122,30,60,.11);transition:color .5s var(--e);user-select:none;pointer-events:none;white-space:nowrap}
-.crowd svg{position:relative;z-index:1;display:block;width:100%;height:clamp(280px,28vw,470px)}
+.crowd svg{position:relative;z-index:1;display:block;overflow:visible;width:100%;height:clamp(280px,28vw,470px)}
 .crowd .seeyou{position:absolute;z-index:2;right:96px;bottom:clamp(14px,2.2vw,28px);margin:0;font:600 clamp(14px,1.7vw,21px) var(--sans);letter-spacing:-.01em;color:#000;text-shadow:0 0 10px var(--bg),0 0 3px var(--bg);transition:text-shadow .5s var(--e)}
 .crowd .pass{animation-duration:var(--dur);animation-delay:var(--dl);animation-timing-function:linear;animation-iteration-count:infinite}
 .crowd .pass.r{animation-name:passR}.crowd .pass.l{animation-name:passL}
